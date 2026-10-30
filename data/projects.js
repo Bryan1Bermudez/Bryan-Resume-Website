@@ -95,7 +95,7 @@ window.PROJECTS = [
       "Side-by-side comparison with naive Euclidean interpolation: the Lie-group path keeps the rotation orthogonal (det = 1) where the naive one drifts.",
       "8-keyframe closed-loop orbit at constant height, rendered frame by frame into an animation."
     ],
-    media: { type: "video", src: "assets/projects/camera-trajectory.mp4", poster: "assets/projects/camera-trajectory-poster.png", alt: "Camera orbiting a scene along an SE(3) geodesic" },
+    media: { type: "video", contain: true, src: "assets/projects/camera-trajectory.mp4", poster: "assets/projects/camera-trajectory-poster.png", alt: "Camera orbiting a scene along an SE(3) geodesic" },
     links: [{ label: "Source", href: "https://github.com/Bryan1Bermudez/cse5280-Camera-Trajectory-Animation-Using-Lie-Group-Interpolation-bbermudez2023" }]
   },
   {
