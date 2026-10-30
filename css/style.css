@@ -174,6 +174,12 @@ img, video { max-width: 100%; display: block; }
 /* the first visible card gets the spotlight: full width, media beside text */
 .project.spotlight { grid-column: span 12; flex-direction: row; }
 .project.spotlight .project-media { flex: 0 0 55%; aspect-ratio: auto; border-bottom: 0; border-right: 1px solid var(--line); }
+.project.spotlight .project-media img, .project.spotlight .project-media video { object-fit: contain; object-position: center; background: transparent; position: relative; z-index: 1; }
+/* blurred copy of the same picture fills the letterbox */
+.project.spotlight .project-media::before {
+  content: ""; position: absolute; inset: -24px; background: var(--media-bg, #0b0f1a) center / cover no-repeat;
+  filter: blur(22px) brightness(.55) saturate(1.2);
+}
 .project.spotlight .project-body { flex: 1; padding: 26px 28px; }
 .project.spotlight h3 { font-size: 24px; }
 @media (max-width: 900px) {

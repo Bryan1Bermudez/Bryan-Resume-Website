@@ -45,6 +45,7 @@
 
   function mediaNode(m) {
     var wrap = el("div", "project-media" + (m.contain ? " contain" : ""));
+    wrap.style.setProperty("--media-bg", 'url("' + new URL(m.poster || m.src, document.baseURI).href + '")');
     var node;
     if (m.type === "video") {
       node = document.createElement("video");
