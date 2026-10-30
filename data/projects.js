@@ -45,7 +45,8 @@ window.PROJECTS = [
       "Chunk-streamed block world with flowing liquids, falling powder, connected textures and a custom lighting engine that runs on its own thread, plus an occlusion manager to keep rendering cost down.",
       "Galaxies, systems, planets, weather, towns and NPC schedules are all generated from seeds, archetypes and reusable blueprints; Venus, the first story location, is hand-built on the same generator.",
       "Modular, data-driven spell system: new spells are composed from reusable components without touching core code.",
-      "Ships built cell by cell from part kits; all pixel-art tiles, blocks, sprites and UI are original. Planning a commercial release."
+      "Ships built cell by cell from part kits; all pixel-art tiles, blocks, sprites and UI are original. Planning a commercial release.",
+      "Note: the game site credits \"Aurora\" — that is my developer name, used for privacy; the project is mine."
     ],
     media: { type: "image", src: "assets/projects/armament-title.webp", alt: "Armament RPG title screen: the game logo over a nebula, with Play, Options, Mods, Credits and Exit" },
     links: [
