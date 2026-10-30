@@ -116,8 +116,8 @@
       c.classList.remove("spotlight");
       if (!hide) shown++;
     });
-    var first = cards.filter(function (c) { return !c.classList.contains("is-hidden"); })[0];
-    if (first && first.querySelector(".project-media")) first.classList.add("spotlight");
+    var first = cards.filter(function (c) { return !c.classList.contains("is-hidden") && c.querySelector(".project-media"); })[0];
+    if (first) first.classList.add("spotlight");
     if (emptyNote) emptyNote.hidden = shown > 0;
   }
   if (filterBar) {
@@ -130,6 +130,13 @@
         x.setAttribute("aria-pressed", String(on));
       });
       applyFilter(b.dataset.filter);
+    });
+  }
+  // hide filter buttons that would show nothing
+  if (filterBar && grid) {
+    filterBar.querySelectorAll("[data-filter]").forEach(function (b) {
+      var cat = b.dataset.filter;
+      if (cat !== "all" && !grid.querySelector('[data-category="' + cat + '"]')) b.hidden = true;
     });
   }
   applyFilter("all");

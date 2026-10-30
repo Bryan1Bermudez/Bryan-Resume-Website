@@ -20,24 +20,6 @@
 window.PROJECTS = [
   // ---------------------------------------------------------------- hidden, ready
   {
-    id: "smart-watch",
-    category: "embedded",
-    hidden: true,
-    featured: true,
-    title: "Bluetooth Smart Watch",
-    period: "Jun 2025 – Sep 2025",
-    tags: ["ESP32", "C/C++", "Bluetooth", "Touchscreen", "Power management"],
-    summary: "A wrist-sized wearable built from scratch: component selection, board layout, and custom firmware driving a touchscreen, Bluetooth radio and battery on an ESP32.",
-    bullets: [
-      "Diagnosed three failures in the first prototype (fast battery drain, dropped Bluetooth link, unreliable touch input) by measuring power draw and logging connection events.",
-      "Rewrote the connection-handling and power-management code for prototype two.",
-      "Validated prototype two through multi-day wear testing; it holds up in daily use with up to 4 days of battery per charge."
-    ],
-    // TODO: photo of the watch -> assets/projects/smart-watch.jpg
-    media: null,
-    links: []
-  },
-  {
     id: "oppia",
     category: "web",
     hidden: true,
@@ -65,11 +47,28 @@ window.PROJECTS = [
       "Modular, data-driven spell system: new spells are composed from reusable components without touching core code.",
       "Ships built cell by cell from part kits; all pixel-art tiles, blocks, sprites and UI are original. Planning a commercial release."
     ],
-    media: { type: "image", src: "assets/projects/armament-city.webp", alt: "Armament RPG: the player standing in a generated city at sunset, with the inventory hotbar and a Biomancer class panel" },
+    media: { type: "image", src: "assets/projects/armament-title.webp", alt: "Armament RPG title screen: the game logo over a nebula, with Play, Options, Mods, Credits and Exit" },
     links: [
       { label: "Game site", href: "https://aurora-projects.github.io/armament-site/" },
       { label: "Dev log", href: "https://aurora-projects.github.io/armament-site/#transmissions" }
     ]
+  },
+  {
+    id: "smart-watch",
+    category: "embedded",
+    featured: true,
+    title: "Bluetooth Smart Watch",
+    period: "Jun 2025 – Sep 2025",
+    tags: ["ESP32", "C/C++", "Bluetooth", "Touchscreen", "Power management"],
+    summary: "A wrist-sized wearable built from scratch: component selection, board layout, and custom firmware driving a touchscreen, Bluetooth radio and battery on an ESP32.",
+    bullets: [
+      "Diagnosed three failures in the first prototype (fast battery drain, dropped Bluetooth link, unreliable touch input) by measuring power draw and logging connection events.",
+      "Rewrote the connection-handling and power-management code for prototype two.",
+      "Validated prototype two through multi-day wear testing; it holds up in daily use with up to 4 days of battery per charge."
+    ],
+    // TODO: photo of the watch -> assets/projects/smart-watch.jpg, then set media: { type: "image", src: "...", alt: "..." }
+    media: null,
+    links: []
   },
   {
     id: "hns",
