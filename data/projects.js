@@ -38,24 +38,6 @@ window.PROJECTS = [
     links: []
   },
   {
-    id: "sandbox-game",
-    category: "games",
-    hidden: true,
-    featured: true,
-    title: "2D Sandbox Game",
-    period: "Solo indie project · in development",
-    tags: ["Godot", "GDScript", "Procedural generation", "Pixel art"],
-    summary: "An original block-based sandbox game: tile/chunk world system, procedural world generation, player physics and inventory. Planned commercial release.",
-    bullets: [
-      "Custom 2D lighting engine and an occlusion manager to keep rendering cost down as the world grows.",
-      "Modular, data-driven spell system: new spells are composed from reusable components without touching core code.",
-      "All pixel-art tiles, blocks and character sprites are original."
-    ],
-    // TODO: gameplay screenshot or GIF -> assets/projects/sandbox-game.png
-    media: null,
-    links: []
-  },
-  {
     id: "oppia",
     category: "web",
     hidden: true,
@@ -69,6 +51,26 @@ window.PROJECTS = [
   },
 
   // ---------------------------------------------------------------- visible
+  {
+    id: "armament",
+    category: "games",
+    featured: true,
+    title: "Armament RPG",
+    period: "Solo indie project · Godot 4.7, GDScript · alpha, in development",
+    tags: ["Godot", "GDScript", "Procedural generation", "Custom lighting", "Pixel art"],
+    summary: "An original sandbox RPG in the spirit of Terraria and Starbound. It looks 2D, but the world is five lanes of cubes under a perspective camera, so you build, dig and fight in depth. Pick a race and a class, build a ship, and travel a procedurally generated galaxy of ~10,000 systems.",
+    bullets: [
+      "Chunk-streamed block world with flowing liquids, falling powder, connected textures and a custom lighting engine that runs on its own thread, plus an occlusion manager to keep rendering cost down.",
+      "Galaxies, systems, planets, weather, towns and NPC schedules are all generated from seeds, archetypes and reusable blueprints; Venus, the first story location, is hand-built on the same generator.",
+      "Modular, data-driven spell system: new spells are composed from reusable components without touching core code.",
+      "Ships built cell by cell from part kits; all pixel-art tiles, blocks, sprites and UI are original. Planning a commercial release."
+    ],
+    media: { type: "image", src: "assets/projects/armament-city.webp", alt: "Armament RPG: the player standing in a generated city at sunset, with the inventory hotbar and a Biomancer class panel" },
+    links: [
+      { label: "Game site", href: "https://aurora-projects.github.io/armament-site/" },
+      { label: "Dev log", href: "https://aurora-projects.github.io/armament-site/#transmissions" }
+    ]
+  },
   {
     id: "hns",
     category: "systems",
