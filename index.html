@@ -8,10 +8,15 @@
 <meta name="color-scheme" content="light dark">
 <meta property="og:title" content="Bryan Bermudez — Software Engineer">
 <meta property="og:description" content="Software Engineering student at Florida Tech (May 2027). Embedded firmware, Linux systems, computer graphics and games.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bryan1bermudez.github.io/Bryan-Resume-Website/">
+<meta property="og:image" content="https://bryan1bermudez.github.io/Bryan-Resume-Website/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://bryan1bermudez.github.io/Bryan-Resume-Website/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=1">
+<link rel="stylesheet" href="css/style.css?v=2">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231b2a41'/><text x='32' y='44' font-size='34' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='%23ffffff'>B</text></svg>">
 </head>
 <body>
@@ -37,18 +42,34 @@
 <main id="top">
 
   <section class="hero wrap">
-    <p class="eyebrow">Software Engineering · Florida Tech · B.S. May 2027</p>
-    <h1>I build things end to end, from the hardware up to the software that runs on it.</h1>
-    <p class="lede">
-      Custom ESP32 firmware for a Bluetooth smart watch, Linux automation for a self-hosted home server,
-      an original 2D sandbox game, and a semester of computer-graphics simulations.
-      Looking for a new-grad software engineering role starting May 2027.
-    </p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="#projects">See the projects</a>
-      <a class="btn" href="Bryan_Bermudez_Resume.pdf" download>Download resume</a>
-      <a class="btn btn-ghost" href="https://github.com/Bryan1Bermudez" rel="noopener">GitHub ↗</a>
-      <a class="btn btn-ghost" href="https://www.linkedin.com/in/bryan-bermudez-097385308" rel="noopener">LinkedIn ↗</a>
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Software Engineering · Florida Tech · B.S. May 2027</p>
+        <h1>I build things end to end, from the hardware up to the software that runs on it.</h1>
+        <p class="lede">
+          Custom ESP32 firmware for a Bluetooth smart watch, Linux automation for a self-hosted home server,
+          an original 2D sandbox game, and a semester of computer-graphics simulations.
+          Looking for a new-grad software engineering role starting May 2027.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">See the projects</a>
+          <a class="btn" href="Bryan_Bermudez_Resume.pdf" download>Download resume</a>
+          <a class="btn btn-ghost" href="https://github.com/Bryan1Bermudez" rel="noopener">GitHub ↗</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/bryan-bermudez-097385308" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <!-- Swap for a headshot: <img class="avatar" src="assets/headshot.jpg" alt="Bryan Bermudez"> -->
+        <div class="avatar monogram" aria-hidden="true">BB</div>
+        <div class="now">
+          <h2>Now</h2>
+          <ul>
+            <li><span class="dot"></span>Senior design: Home Network Solutions, Bash installers &amp; auth</li>
+            <li><span class="dot"></span>Building a 2D sandbox game in Godot</li>
+            <li><span class="dot"></span>Graduating May 2027 · open to new-grad SWE roles</li>
+          </ul>
+        </div>
+      </div>
     </div>
     <ul class="facts" aria-label="Highlights">
       <li><strong>4 days</strong><span>battery on the smart watch, prototype 2</span></li>
@@ -61,9 +82,19 @@
   <section id="projects" class="wrap section">
     <div class="section-head">
       <h2>Projects</h2>
-      <p>Selected work. Source is linked on every card.</p>
+      <p>Selected work. Source is linked on every card; click any picture to enlarge it.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter projects" data-filters>
+      <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="filter" data-filter="embedded" aria-pressed="false">Embedded</button>
+      <button type="button" class="filter" data-filter="graphics" aria-pressed="false">Graphics &amp; simulation</button>
+      <button type="button" class="filter" data-filter="systems" aria-pressed="false">Systems &amp; Linux</button>
+      <button type="button" class="filter" data-filter="games" aria-pressed="false">Games</button>
+      <button type="button" class="filter" data-filter="web" aria-pressed="false">Web</button>
+      <button type="button" class="filter" data-filter="data" aria-pressed="false">Data</button>
     </div>
     <div class="projects" data-projects></div>
+    <p class="empty muted" data-empty hidden>Nothing in this category yet.</p>
   </section>
 
   <section id="skills" class="wrap section">
@@ -147,6 +178,7 @@
     </div>
     <div class="contact-links">
       <a class="btn btn-primary" href="mailto:bryanbermudezpeppery@gmail.com">bryanbermudezpeppery@gmail.com</a>
+      <button class="btn" type="button" data-copy="bryanbermudezpeppery@gmail.com">Copy email</button>
       <a class="btn" href="https://github.com/Bryan1Bermudez" rel="noopener">github.com/Bryan1Bermudez</a>
       <a class="btn" href="https://www.linkedin.com/in/bryan-bermudez-097385308" rel="noopener">LinkedIn</a>
       <a class="btn" href="Bryan_Bermudez_Resume.pdf" download>Resume (PDF)</a>
@@ -156,7 +188,7 @@
 </main>
 
 <footer class="wrap foot">
-  <p>© <span data-year></span> Bryan Bermudez</p>
+  <p>© <span data-year></span> Bryan Bermudez · <a href="#top">Back to top ↑</a></p>
 </footer>
 
 <div class="lightbox" hidden>
@@ -165,6 +197,6 @@
 </div>
 
 <script src="data/projects.js?v=2"></script>
-<script src="js/main.js?v=1"></script>
+<script src="js/main.js?v=2"></script>
 </body>
 </html>

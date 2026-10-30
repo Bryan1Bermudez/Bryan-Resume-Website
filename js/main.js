@@ -67,6 +67,7 @@
   function projectCard(p) {
     var card = el("article", "project" + (p.featured ? " featured" : "") + (p.hidden ? " preview-only" : ""));
     card.id = "project-" + p.id;
+    card.dataset.category = p.category || "";
     if (p.media) card.appendChild(mediaNode(p.media));
 
     var body = el("div", "project-body");
@@ -102,6 +103,70 @@
       grid.appendChild(projectCard(p));
     });
   }
+
+  // ---------- filters: hide cards whose category doesn't match; first visible card is the spotlight
+  var filterBar = document.querySelector("[data-filters]");
+  var emptyNote = document.querySelector("[data-empty]");
+  function applyFilter(cat) {
+    var cards = grid ? Array.prototype.slice.call(grid.children) : [];
+    var shown = 0;
+    cards.forEach(function (c) {
+      var hide = cat !== "all" && c.dataset.category !== cat;
+      c.classList.toggle("is-hidden", hide);
+      c.classList.remove("spotlight");
+      if (!hide) shown++;
+    });
+    var first = cards.filter(function (c) { return !c.classList.contains("is-hidden"); })[0];
+    if (first && first.querySelector(".project-media")) first.classList.add("spotlight");
+    if (emptyNote) emptyNote.hidden = shown > 0;
+  }
+  if (filterBar) {
+    filterBar.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-filter]");
+      if (!b) return;
+      filterBar.querySelectorAll("[data-filter]").forEach(function (x) {
+        var on = x === b;
+        x.classList.toggle("is-active", on);
+        x.setAttribute("aria-pressed", String(on));
+      });
+      applyFilter(b.dataset.filter);
+    });
+  }
+  applyFilter("all");
+
+  // ---------- scroll-spy: underline the nav link of the section in view
+  var navAnchors = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
+  var sections = navAnchors.map(function (a) { return document.querySelector(a.getAttribute("href")); }).filter(Boolean);
+  if ("IntersectionObserver" in window && sections.length) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        navAnchors.forEach(function (a) { a.classList.toggle("is-current", a.getAttribute("href") === "#" + en.target.id); });
+      });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+    sections.forEach(function (s) { spy.observe(s); });
+  }
+
+  // ---------- reveal on scroll
+  var revealables = document.querySelectorAll(".section, .project, .facts li");
+  if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("in"); ro.unobserve(en.target); } });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    revealables.forEach(function (n) { n.classList.add("reveal"); ro.observe(n); });
+  }
+
+  // ---------- copy email
+  document.querySelectorAll("[data-copy]").forEach(function (b) {
+    var label = b.textContent;
+    b.addEventListener("click", function () {
+      if (!navigator.clipboard) return;
+      navigator.clipboard.writeText(b.dataset.copy).then(function () {
+        b.textContent = "Copied ✓";
+        setTimeout(function () { b.textContent = label; }, 1600);
+      });
+    });
+  });
 
   // ---------- lightbox
   var box = document.querySelector(".lightbox");

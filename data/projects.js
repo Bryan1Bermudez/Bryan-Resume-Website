@@ -9,6 +9,7 @@
 //   bullets   what was actually done (resume-style)
 //   media     { type: "image" | "video" | "gif", src, poster, alt }  (optional)
 //   links     [{ label, href }]
+//   category  one of: "embedded" | "graphics" | "systems" | "web" | "data" | "games" (drives the filter buttons)
 //   featured  true = big card in the first row
 //   hidden    true = NOT rendered on the public page. Kept here ready to go.
 //             Open the site with ?preview=1 to see hidden cards while editing.
@@ -20,6 +21,7 @@ window.PROJECTS = [
   // ---------------------------------------------------------------- hidden, ready
   {
     id: "smart-watch",
+    category: "embedded",
     hidden: true,
     featured: true,
     title: "Bluetooth Smart Watch",
@@ -37,6 +39,7 @@ window.PROJECTS = [
   },
   {
     id: "sandbox-game",
+    category: "games",
     hidden: true,
     featured: true,
     title: "2D Sandbox Game",
@@ -54,6 +57,7 @@ window.PROJECTS = [
   },
   {
     id: "oppia",
+    category: "web",
     hidden: true,
     title: "Oppia (open source)",
     period: "Spring 2025",
@@ -67,6 +71,7 @@ window.PROJECTS = [
   // ---------------------------------------------------------------- visible
   {
     id: "hns",
+    category: "systems",
     featured: true,
     title: "Home Network Solutions",
     period: "CSE 4101 senior design · team of 4 · Fall 2026, in progress",
@@ -85,6 +90,7 @@ window.PROJECTS = [
   },
   {
     id: "camera-trajectory",
+    category: "graphics",
     featured: true,
     title: "Camera Trajectory Animation with Lie-Group Interpolation",
     period: "CSE 5280 Computer Graphics · Apr 2026",
@@ -100,6 +106,7 @@ window.PROJECTS = [
   },
   {
     id: "ray-tracer",
+    category: "graphics",
     title: "Ray Tracer",
     period: "CSE 5280 Computer Graphics · Apr 2026",
     tags: ["Python", "NumPy"],
@@ -113,6 +120,7 @@ window.PROJECTS = [
   },
   {
     id: "space-carving",
+    category: "graphics",
     title: "Space Carving 3D Reconstruction",
     period: "CSE 5280 Computer Graphics · Apr 2026",
     tags: ["Python", "Open3D", "Computer vision"],
@@ -126,6 +134,7 @@ window.PROJECTS = [
   },
   {
     id: "evacuation",
+    category: "graphics",
     title: "Building Evacuation & Robot-Arm Kinematics",
     period: "CSE 5280 Computer Graphics · Feb – Mar 2026",
     tags: ["Python", "Inverse kinematics", "Simulation"],
@@ -142,6 +151,7 @@ window.PROJECTS = [
   },
   {
     id: "particles",
+    category: "graphics",
     title: "Multi-Particle Social Forces & Floor-Plan Penalties",
     period: "CSE 5280 Computer Graphics · Feb 2026",
     tags: ["Python", "Matplotlib", "Simulation"],
@@ -158,6 +168,7 @@ window.PROJECTS = [
   },
   {
     id: "os",
+    category: "systems",
     title: "Operating Systems: Semaphores, Process API, OS/161",
     period: "CSE 4001 Operating Systems · Fall 2025",
     tags: ["C/C++", "Linux", "pthreads", "OS/161"],
@@ -175,6 +186,7 @@ window.PROJECTS = [
   },
   {
     id: "ecpla",
+    category: "web",
     title: "ECPLA Local Artisan Marketplace",
     period: "CSE 4410 Intro to Project Management · team · in progress",
     tags: ["Python", "Flask", "SQLite", "Scrum", "Jira"],
@@ -185,6 +197,7 @@ window.PROJECTS = [
   },
   {
     id: "signaldesk",
+    category: "data",
     title: "SignalDesk Workflow Health Check",
     period: "Data science intern challenge · Aug 2026",
     tags: ["Python", "pandas", "Data analysis"],
