@@ -9,7 +9,7 @@
 //   bullets   what was actually done (resume-style)
 //   media     { type: "image" | "video" | "gif", src, poster, alt }  (optional)
 //   links     [{ label, href }]
-//   category  one of: "embedded" | "graphics" | "systems" | "web" | "data" | "games" (drives the filter buttons)
+//   category  one of: "embedded" | "graphics" | "systems" | "web" | "data" | "games" | "ai" (drives the filter buttons)
 //   featured  true = big card in the first row
 //   hidden    true = NOT rendered on the public page. Kept here ready to go.
 //             Open the site with ?preview=1 to see hidden cards while editing.
@@ -70,6 +70,22 @@ window.PROJECTS = [
     // TODO: photo of the watch -> assets/projects/smart-watch.jpg, then set media: { type: "image", src: "...", alt: "..." }
     media: null,
     links: []
+  },
+  {
+    id: "local-ai",
+    category: "ai",
+    title: "Offline AI Assistant (local LLM)",
+    period: "Personal project · Aug 2026 · AI-assisted build",
+    tags: ["Python", "Ollama", "Llama 3.2", "LLM tool calling", "REST API"],
+    summary: "A command-line AI assistant that runs entirely on my own PC against a Llama 3.2 model served locally by Ollama, so no cloud API is called. I used an AI assistant to generate a six-lesson build-along course and its code, then installed and ran every lesson on my Windows PC.",
+    bullets: [
+      "Conversation memory (the full message history is resent to Ollama's /api/chat each turn), streamed replies, and configurable context window and temperature.",
+      "Tool calling: the model can ask to read a local file, and the script runs the function and sends the result back for the model's final answer.",
+      "Error handling for a stopped model server at startup, a lost connection mid-chat, a missing file and empty input; transcripts from my runs are in the repo.",
+      "Python standard library only (urllib, json), with each lesson's script building on the previous one."
+    ],
+    media: null,
+    links: [{ label: "Source", href: "https://github.com/Bryan1Bermudez/local-ai-assistant" }]
   },
   {
     id: "hns",
