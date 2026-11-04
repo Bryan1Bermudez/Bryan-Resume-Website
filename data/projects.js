@@ -9,7 +9,7 @@
 //   bullets   what was actually done (resume-style)
 //   media     { type: "image" | "video" | "gif", src, poster, alt }  (optional)
 //   links     [{ label, href }]
-//   category  one of: "embedded" | "graphics" | "systems" | "web" | "data" | "games" | "ai" (drives the filter buttons)
+//   category  one of: "embedded" | "graphics" | "systems" | "web" | "data" | "games" | "ai" | "mobile" (drives the filter buttons)
 //   featured  true = big card in the first row
 //   hidden    true = NOT rendered on the public page. Kept here ready to go.
 //             Open the site with ?preview=1 to see hidden cards while editing.
@@ -86,6 +86,51 @@ window.PROJECTS = [
     ],
     media: null,
     links: [{ label: "Source", href: "https://github.com/Bryan1Bermudez/local-ai-assistant" }]
+  },
+  {
+    id: "location-tracker",
+    category: "mobile",
+    title: "Friend Location Tracker",
+    period: "Personal project · Spring 2026 · Android",
+    tags: ["React Native", "Expo", "TypeScript", "Firebase", "Google Maps"],
+    summary: "An Android app for sharing your live location with friends. Each phone gets a short ID. You add friends by their ID, and their positions show up as pins on a map.",
+    bullets: [
+      "Watches the phone's GPS with expo-location and writes coordinates to a Firebase Realtime Database every 5 seconds, using anonymous Firebase sign-in.",
+      "Friends list stored on the device with AsyncStorage; friends are drawn as pins on a react-native-maps map, with Find Me and one-tap Google Maps driving directions.",
+      "Built as an installable Android APK with EAS Build profiles."
+    ],
+    media: null,
+    links: [{ label: "Source", href: "https://github.com/Bryan1Bermudez/friend-location-tracker" }]
+  },
+  {
+    id: "cursor-effects",
+    category: "games",
+    title: "Cursor Effects (gacha cursor customizer)",
+    period: "Personal project · Spring 2026 · Python desktop app",
+    tags: ["Python", "PyQt6", "pynput", "Sprite animation"],
+    summary: "A desktop toy that draws animated effects (fire, dust clouds, swirling leaves) around your mouse cursor. You unlock new effects by rolling for them in a gacha-style randomizer.",
+    bullets: [
+      "Frameless, always-on-top, click-through PyQt6 overlay that follows the cursor and plays frame-by-frame PNG animations, plus a separate click animation from a global mouse listener.",
+      "Color-tinted variants of the base fire effect; each effect pairs idle, trail and click animations.",
+      "Weighted roll (70% common, ~29% rare, ~1% legendary) with rarity-specific reveal animations, and a draggable catalogue window to equip unlocked effects. Unlocks are saved to JSON."
+    ],
+    media: { type: "gif", src: "assets/projects/cursor-effects-reveal.gif", alt: "Pixel-art legendary reveal animation from the cursor effects randomizer", contain: true },
+    links: [{ label: "Source", href: "https://github.com/Bryan1Bermudez/cursor-effects" }]
+  },
+  {
+    id: "singing-animatronic",
+    category: "embedded",
+    title: "Singing Animatronic",
+    period: "Personal project · Summer 2024 · Arduino",
+    tags: ["Arduino", "C++", "FastLED", "Servo", "MP3 module"],
+    summary: "Firmware for a singing animatronic character. It plays songs from an MP3 module, moves its servo mouth in time with the audio, and blinks animated LED eyes.",
+    bullets: [
+      "Controls a serial MP3 player module with raw command frames over SoftwareSerial. Buttons skip tracks; a rotary encoder, read with hardware interrupts, sets the volume and pauses.",
+      "Lip sync: an analog audio-level reading opens the servo mouth when it crosses a threshold that scales with volume, then eases it closed.",
+      "4×8 WS2812 LED-matrix eyes driven with FastLED, with a timed multi-frame blink animation."
+    ],
+    media: null,
+    links: [{ label: "Source", href: "https://github.com/Bryan1Bermudez/singing-animatronic" }]
   },
   {
     id: "hns",
